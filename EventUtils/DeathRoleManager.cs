@@ -24,8 +24,8 @@ namespace EventUtils
             {
                 if (AnnounceRespawnReason)
                     pl.Broadcast(10, "Вы были возрождены, так как ивентер включил <color=yellow>респавн</color> во время <color=yellow>ивента</color>");
-                pl.Role.Set(role);
-                Timing.CallDelayed(1f, () => pl.Position = deathRoleSpawnpoint);
+
+                Timing.CallDelayed(1f, () => { pl.Role.Set(role); pl.Position = deathRoleSpawnpoint; });
             }
         }
 

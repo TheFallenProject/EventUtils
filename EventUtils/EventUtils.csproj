@@ -9,7 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EventUtils</RootNamespace>
     <AssemblyName>EventUtils</AssemblyName>
+    <Nullable>enable</Nullable>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <LangVersion>12.0</LangVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -31,68 +33,82 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>C:\Users\artv1\AppData\Roaming\EXILED\Plugins\dependencies\0Harmony.dll</HintPath>
-    </Reference>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\Assembly-CSharp.dll</HintPath>
+    <Compile Include="Commands\AddAssistiveAdmin.cs" />
+    <Compile Include="Commands\AfterlifeCommands.cs" />
+    <Compile Include="Commands\EndEvent.cs" />
+    <Compile Include="Commands\SendEvent.cs" />
+    <Compile Include="Commands\VotingCommands.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Managers\ActiveEventManager.cs" />
+    <Compile Include="Managers\DeathRoleManager.cs" />
+    <Compile Include="Plugin.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Managers\VotingManager.cs" />
+    <Compile Include="WebsocketEvents\EventEndConfirm.cs" />
+    <Compile Include="WebsocketEvents\EventId.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EXILED.9.0.0-beta.4\lib\net48\Assembly-CSharp-Publicized.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>D:\SteamLibrary\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
-    <Reference Include="CommandSystem.Core">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\CommandSystem.Core.dll</HintPath>
+    <Reference Include="CommandSystem.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EXILED.9.0.0-beta.4\lib\net48\CommandSystem.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.API">
-      <HintPath>C:\Users\artv1\AppData\Roaming\EXILED\Plugins\dependencies\Exiled.API.dll</HintPath>
+    <Reference Include="Exiled.API, Version=9.0.0.0, Culture=neutral, processorArchitecture=Amd64">
+      <HintPath>..\packages\EXILED.9.0.0-beta.4\lib\net48\Exiled.API.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.CreditTags">
-      <HintPath>C:\Users\artv1\AppData\Roaming\EXILED\Plugins\Exiled.CreditTags.dll</HintPath>
+    <Reference Include="Exiled.CreditTags, Version=9.0.0.0, Culture=neutral, processorArchitecture=Amd64">
+      <HintPath>..\packages\EXILED.9.0.0-beta.4\lib\net48\Exiled.CreditTags.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.CustomItems">
-      <HintPath>C:\Users\artv1\AppData\Roaming\EXILED\Plugins\Exiled.CustomItems.dll</HintPath>
+    <Reference Include="Exiled.CustomModules, Version=9.0.0.0, Culture=neutral, processorArchitecture=Amd64">
+      <HintPath>..\packages\EXILED.9.0.0-beta.4\lib\net48\Exiled.CustomModules.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.CustomRoles">
-      <HintPath>C:\Users\artv1\AppData\Roaming\EXILED\Plugins\Exiled.CustomRoles.dll</HintPath>
+    <Reference Include="Exiled.Events, Version=9.0.0.0, Culture=neutral, processorArchitecture=Amd64">
+      <HintPath>..\packages\EXILED.9.0.0-beta.4\lib\net48\Exiled.Events.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.Events">
-      <HintPath>C:\Users\artv1\AppData\Roaming\EXILED\Plugins\Exiled.Events.dll</HintPath>
+    <Reference Include="Exiled.Loader, Version=9.0.0.0, Culture=neutral, processorArchitecture=Amd64">
+      <HintPath>..\packages\EXILED.9.0.0-beta.4\lib\net48\Exiled.Loader.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.Permissions">
-      <HintPath>C:\Users\artv1\AppData\Roaming\EXILED\Plugins\Exiled.Permissions.dll</HintPath>
-    </Reference>
-    <Reference Include="Exiled.Updater">
-      <HintPath>C:\Users\artv1\AppData\Roaming\EXILED\Plugins\Exiled.Updater.dll</HintPath>
+    <Reference Include="Exiled.Permissions, Version=9.0.0.0, Culture=neutral, processorArchitecture=Amd64">
+      <HintPath>..\packages\EXILED.9.0.0-beta.4\lib\net48\Exiled.Permissions.dll</HintPath>
     </Reference>
     <Reference Include="Mirror">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\Mirror.dll</HintPath>
+      <HintPath>D:\SteamLibrary\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\Mirror.dll</HintPath>
     </Reference>
-    <Reference Include="SemanticVersioning">
-      <HintPath>C:\Users\artv1\AppData\Roaming\EXILED\Plugins\dependencies\SemanticVersioning.dll</HintPath>
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\AppData\Roaming\EXILED\Plugins\dependencies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NorthwoodLib, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EXILED.9.0.0-beta.4\lib\net48\NorthwoodLib.dll</HintPath>
+    </Reference>
+    <Reference Include="PluginAPI, Version=13.1.3.0, Culture=neutral, processorArchitecture=Amd64">
+      <HintPath>..\packages\EXILED.9.0.0-beta.4\lib\net48\PluginAPI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.WebSockets, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.WebSockets.4.3.0\lib\net46\System.Net.WebSockets.dll</HintPath>
     </Reference>
-    <Reference Include="YamlDotNet">
-      <HintPath>C:\Users\artv1\AppData\Roaming\EXILED\Plugins\dependencies\YamlDotNet.dll</HintPath>
+    <Reference Include="TFP-APIManager">
+      <HintPath>..\..\..\..\..\AppData\Roaming\EXILED\Plugins\TFP-APIManager.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>D:\SteamLibrary\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>D:\SteamLibrary\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="YamlDotNet, Version=11.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
+      <HintPath>..\packages\EXILED.9.0.0-beta.4\lib\net48\YamlDotNet.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\AfterlifeCommands.cs" />
-    <Compile Include="Commands\VotingCommands.cs" />
-    <Compile Include="Config.cs" />
-    <Compile Include="DeathRoleManager.cs" />
-    <Compile Include="Plugin.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VotingManager.cs" />
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
